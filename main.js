@@ -30,7 +30,7 @@ const SVG = {
         svg.setAttributeNS(null, 'width', this.width);
         svg.setAttributeNS(null, 'height', this.height);
         svg.setAttributeNS(null, 'viewBox', `0 0 ${this.width} ${this.height}`);
-        svg.setAttributeNS(null, 'style', 'outline: 1px solid #fff; background-color: ' + this.backgroundColor);
+        svg.setAttributeNS(null, 'style', 'background-color: ' + this.backgroundColor);
         this.loc.appendChild(svg);
         this.setId($('svg1'));
     }

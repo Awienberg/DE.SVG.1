@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+<head>
+    <title>DE.SVG.1</title>
+    <meta charset='utf-8'/>
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0">
+    <script src="main.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+    
+<body>
+    <div class="wrapper">
+        
+        <h1>DE.SVG.11 Grønland</h1>    
+
+        <div id='svg'></div>
+
+        <script>
+                
+        let shapes = [];
+
+        //create svg and shapes
+        let initialize = function () {
+            let svg = Object.create(SVG);
+            svg.init('svg', 180, 120, 'transparent');
+            svg.toDOM();
+            
+            let rect = Object.create(Rect);
+            rect.init(0, 0, 180, 60, 'white');
+            shapes.push(rect);
+
+            rect = Object.create(Rect);
+            rect.init(0, 60, 180, 60, '#D10430');
+            shapes.push(rect);
+
+            shapes.forEach(function(shape) {
+                svg.getId().appendChild(shape.draw());
+            });
+        };
+
+        window.addEventListener('load', initialize);
+
+        </script>
+        
+    </div>
+
+<footer>
+</footer>
+
+</body>
+    
+</html>
