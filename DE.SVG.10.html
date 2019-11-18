@@ -1,0 +1,60 @@
+<!doctype html>
+<html>
+<head>
+    <title>DE.SVG.1</title>
+    <meta charset='utf-8'/>
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0">
+    <script src="main.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+    
+<body>
+    <div class="wrapper">
+        
+        <h1>DE.SVG.10</h1>    
+
+        <div id='svg'></div>
+
+        <script>
+                
+        let shapes = [];
+
+        //create svg and shapes
+        let initialize = function () {
+            let svg = Object.create(SVG);
+            svg.init('svg', 400, 200, 'black');
+            svg.toDOM();
+            
+            let rect = Object.create(Rect);
+            rect.init(20, 20, 80, 30, 'pink');
+            shapes.push(rect);
+
+            let squa = Object.create(Rect);
+            squa.init(20, 120, 60, 60, 'red');
+            shapes.push(squa);
+
+            let circ = Object.create(Circle);
+            circ.init(100, 100, 15, 'blue');
+            shapes.push(circ);
+
+            let elli = Object.create(Ellipse);
+            elli.init(200, 100, 40, 50, 'purple');
+            shapes.push(elli);
+
+            shapes.forEach(function(shape) {
+                svg.getId().appendChild(shape.draw());
+            });
+        };
+
+        window.addEventListener('load', initialize);
+
+        </script>
+        
+    </div>
+
+<footer>
+</footer>
+
+</body>
+    
+</html>
