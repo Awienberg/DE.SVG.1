@@ -22,23 +22,15 @@
         //create svg and shapes
         let initialize = function () {
             let svg = Object.create(SVG);
-            svg.init('svg', 170, 140, '#fff');
+            svg.init('svg', 180, 120, '#D10430');
             svg.toDOM();
             
             let rect = Object.create(Rect);
-            rect.init(0, 0, 60, 60, '#D10430');
+            rect.init(60, 0, 20, 120, '#fff');
             shapes.push(rect);
 
             rect = Object.create(Rect);
-            rect.init(80, 0, 90, 60, '#D10430');
-            shapes.push(rect);
-
-            rect = Object.create(Rect);
-            rect.init(0, 80, 60, 60, '#D10430');
-            shapes.push(rect);
-
-            rect = Object.create(Rect);
-            rect.init(80, 80, 90, 60, '#D10430');
+            rect.init(0, 50, 180, 20, '#fff');
             shapes.push(rect);
 
             shapes.forEach(function(shape) {

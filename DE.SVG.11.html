@@ -26,12 +26,20 @@
             svg.toDOM();
             
             let rect = Object.create(Rect);
-            rect.init(0, 0, 180, 60, 'white');
+            rect.init(0, 0, 180, 60, '#fff');
             shapes.push(rect);
 
             rect = Object.create(Rect);
             rect.init(0, 60, 180, 60, '#D10430');
             shapes.push(rect);
+
+            let path = Object.create(Path);
+            path.init('M60,60 a1,1 0 0,1 60,0', '#D10330');
+            shapes.push(path);
+
+            path = Object.create(Path);
+            path.init('M60,60 a1,1 0 0,0 60,0', '#fff');
+            shapes.push(path);
 
             shapes.forEach(function(shape) {
                 svg.getId().appendChild(shape.draw());

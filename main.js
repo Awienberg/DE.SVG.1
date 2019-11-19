@@ -102,46 +102,17 @@ const Ellipse = {
 };
 Object.setPrototypeOf( Ellipse, Shape );
 
-
-const Star = {
-    init(x, y, vertices, startangle, factor, color) {
-        this.vertices = vertices;
-        this.startangle = startangle;
-        this.factor = factor;
+const Path = {
+    init(x, y, d, color) {
+        this.d = d;
+        this.color = color;
         this.initinit(x, y, color);
-        this.calcCorners();
-        console.log(this.corners);
     },
-
-    corners: [],
-    calcCorners() {
-        let angle = this.startangle;
-        let i = 0;
-        while(i < this.vertices) {  
-            let vertex = {
-                x: Math.cos(angle) * this.factor + this.x,
-                y: Math.sin(angle) * this.factor + this.y
-            }
-            this.corners.push(vertex);
-            angle += 2 * Math.PI / this.vertices
-            i += 1;
-        }
-    },
-    
     draw() {
-        let ns = this.NS;
-        let shape = document.createElementNS(ns, 'polygon');
-        let s = 'M' + this.corners[0].x + ' ' + this.corners[0].y;
-        s += ' ' + 'h' + Math.abs(this.corners[this.vertices -1].x - this.corners[1].x);
-        let i = 2;
-        while(i < this.vertices) {
-            s += this.corners[i].x + ' ' + this.corners[i].y + ' ';
-            s += this.corners[(i+2)%this.vertices].x + ' ' + this.corners[(i+2)%this.vertices].y + ' ';
-            i++;
-        }
-        shape.setAttribute('points', s+'z');
-        shape.setAttribute('fill', this.color);
+        let shape = document.createElementNS(this.NS, 'path');
+        shape.setAttributeNS(null, 'd', this.d);
+        shape.setAttributeNS(null, 'fill', this.color);
         return shape;
     }
-};
-Object.setPrototypeOf( Star, Shape );
+};    
+Object.setPrototypeOf( Path, Shape );
